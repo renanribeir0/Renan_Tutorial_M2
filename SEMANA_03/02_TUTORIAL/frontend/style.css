@@ -31,10 +31,6 @@ h1{
 	color: #547aa5;
 }
 
-#get{
-	color: #a34f74;
-}
-
 
 button {
 	padding: 3;
@@ -52,8 +48,4 @@ button {
 
 .button-calc{
 	background-color: #547aa5;
-}
-
-.button-get{
-	background-color: #a34f74;
 }
