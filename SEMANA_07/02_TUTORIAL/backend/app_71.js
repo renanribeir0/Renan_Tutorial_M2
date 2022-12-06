@@ -1,4 +1,4 @@
-const express = require('express'); 
+const express = require('express');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -11,9 +11,13 @@ const app = express();
 
 /* Servidor aplicação */
 
+<<<<<<< HEAD
+app.use(express.static("../frontend/admin/"));
+=======
 app.use(express.static("../frontend/"));
 
 
+>>>>>>> 8c3c34638c400784dbfcceb0e5aeeb2abebc6559
 /* Definição dos endpoints */
 
 /******** CRUD ************/
@@ -26,10 +30,15 @@ app.get('/users', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
+<<<<<<< HEAD
+	var sql = 'SELECT * FROM tbUser ORDER BY nome COLLATE NOCASE';
+	db.all(sql, [], (err, rows) => {
+=======
   var sql = 'SELECT * FROM tbUser ORDER BY title COLLATE NOCASE';
 	db.all(sql, [],  (err, rows ) => {
+>>>>>>> 8c3c34638c400784dbfcceb0e5aeeb2abebc6559
 		if (err) {
-		    throw err;
+			throw err;
 		}
 		res.json(rows);
 	});
@@ -43,9 +52,9 @@ app.post('/userinsert', urlencodedParser, (req, res) => {
 
 	sql = "INSERT INTO tbUser (title, id, completed) VALUES ('" + req.body.title + "', 33, false)";
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-	db.run(sql, [],  err => {
+	db.run(sql, [], err => {
 		if (err) {
-		    throw err;
+			throw err;
 		}
 	});
 	db.close(); // Fecha o banco
@@ -59,9 +68,9 @@ app.post('/userupdate', urlencodedParser, (req, res) => {
 
 	sql = "UPDATE tbUser SET title = '" + req.body.title + "' WHERE userId = " + req.body.userId;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-	db.run(sql, [],  err => {
+	db.run(sql, [], err => {
 		if (err) {
-		    throw err;
+			throw err;
 		}
 		res.end();
 	});
@@ -75,9 +84,9 @@ app.post('/userdelete', urlencodedParser, (req, res) => {
 
 	sql = "DELETE FROM tbUser WHERE userId = " + req.body.userId;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-	db.run(sql, [],  err => {
+	db.run(sql, [], err => {
 		if (err) {
-		    throw err;
+			throw err;
 		}
 		res.end();
 	});
@@ -85,5 +94,5 @@ app.post('/userdelete', urlencodedParser, (req, res) => {
 });
 
 app.listen(port, hostname, () => {
-  console.log(`Page server running at http://${hostname}:${port}/`);
+	console.log(`Page server running at http://${hostname}:${port}/`);
 });
