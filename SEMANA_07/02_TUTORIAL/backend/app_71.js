@@ -11,10 +11,17 @@ const app = express();
 
 /* Servidor aplicação */
 
+<<<<<<< HEAD
 app.use(express.static("../frontend/admin/"));
+=======
+app.use(express.static("../frontend/"));
+
+
+>>>>>>> 8c3c34638c400784dbfcceb0e5aeeb2abebc6559
 /* Definição dos endpoints */
 
 /******** CRUD ************/
+
 app.use(express.json());
 
 // Retorna todos registros (é o R do CRUD - Read)
@@ -23,8 +30,13 @@ app.get('/users', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
+<<<<<<< HEAD
 	var sql = 'SELECT * FROM tbUser ORDER BY nome COLLATE NOCASE';
 	db.all(sql, [], (err, rows) => {
+=======
+  var sql = 'SELECT * FROM tbUser ORDER BY title COLLATE NOCASE';
+	db.all(sql, [],  (err, rows ) => {
+>>>>>>> 8c3c34638c400784dbfcceb0e5aeeb2abebc6559
 		if (err) {
 			throw err;
 		}
@@ -38,8 +50,7 @@ app.post('/userinsert', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	sql = "INSERT INTO tbUser (nome, email, telefone) VALUES ('" + req.body.nome + "', '" + req.body.email + "', '" + req.body.telefone + "')";
-	console.log(sql);
+	sql = "INSERT INTO tbUser (title, id, completed) VALUES ('" + req.body.title + "', 33, false)";
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [], err => {
 		if (err) {
@@ -55,7 +66,7 @@ app.post('/userupdate', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	//res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	sql = "UPDATE tbUser SET nome = '" + req.body.nome + "' WHERE userId = " + req.body.userId;
+	sql = "UPDATE tbUser SET title = '" + req.body.title + "' WHERE userId = " + req.body.userId;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [], err => {
 		if (err) {
