@@ -5,7 +5,7 @@ $(document).ready(() => {
 });
 
 var users = {
-    
+
     list() {
         $.ajax({
             url: api + '/users',
@@ -15,34 +15,34 @@ var users = {
                 tx += '<div class="insert" onclick="user.insert()">Inserir</div>';
                 data.forEach(element => {
                     tx += '<div class="user">';
-                        tx += '<div class="title">' + `${element.nome} - ${element.email} - ${element.telefone} ` + '</div>';
-                        tx += '<div class="actions">';
-                            tx += '<div class="action" onclick="user.update(' + element.userId + ',\'' + element.nome + '\')">Editar</div>';
-                            tx += '<div class="action" onclick="user.delete(' + element.userId + ')">Excluir</div>';
-                        tx += '</div>';
+                    tx += '<div class="title">' + `${element.nome} - ${element.email} - ${element.telefone} ` + '</div>';
+                    tx += '<div class="actions">';
+                    tx += '<div class="action" onclick="user.update(' + element.userId + ',\'' + element.nome + '\')">Editar</div>';
+                    tx += '<div class="action" onclick="user.delete(' + element.userId + ')">Excluir</div>';
+                    tx += '</div>';
                     tx += '</div>';
                 });
                 $('#main').html(tx);
             }
         });
-        
+
     }
-    
+
 };
 
 var user = {
 
     insert() {
-        var nome = prompt('Digite o nome:');
-        var email = prompt('Digite o email:');
-        var telefone = prompt('Digite o telefone:');
+        var nomeValue = prompt('Digite o nome:');
+        var emailValue = prompt('Digite o email:');
+        var telefoneValue = prompt('Digite o telefone:');
         console.log(`${nome} - ${email} - ${telefone}`);
         if (nome && email && telefone) {
             if (nome.trim() != '' && email.trim() != '' && telefone.trim() != '') {
                 $.ajax({
                     type: 'POST',
                     url: api + '/userinsert',
-                    data: {nome: nome, email: email, telefone: telefone},
+                    data: { nome: nomeValue, email: emailValue, telefone: telefoneValue },
                 }).done(function () {
                     users.list();
                 }).fail(function (msg) {
@@ -63,7 +63,7 @@ var user = {
                 $.ajax({
                     type: 'POST',
                     url: api + '/userupdate',
-                    data: {nome: nome, userId: userId},
+                    data: { nome: nome, userId: userId },
                 }).done(function () {
                     users.list();
                 }).fail(function (msg) {
@@ -81,7 +81,7 @@ var user = {
             $.ajax({
                 type: 'POST',
                 url: api + '/userdelete',
-                data: {userId: userId},
+                data: { userId: userId },
             }).done(function () {
                 users.list();
             }).fail(function (msg) {
