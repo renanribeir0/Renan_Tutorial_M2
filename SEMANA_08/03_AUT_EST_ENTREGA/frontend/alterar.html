@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alteração do currículo</title>
+</head>
+<body>
+    
+    <form name="atualizacaoPerfil" method="post" action="/atualizarPerfil">
+        <input type="hidden" id="id_sobremim" name="id_sobremim" value="">
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" name="telefone" id="telefone" required>
+        <br>
+        <label for="endereco">Endereço:</label>
+        <input type="text" name="endereco" id="endereco" required>
+        <br>
+        <input type="submit" value="ATUALIZAR">  
+    </form>    
+
+    <script>
+        let url = new URL(window.location.href);
+        let params = url.searchParams;
+        url = '/sobremim?id_sobremim='+url.searchParams.get("id_sobremim");
+
+        fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let usuarios = data;
+
+            usuarios.map(function(usuario) {
+                document.getElementById('id_sobremim').value = usuario.id_sobremim;
+                document.getElementById('telefone').value = usuario.telefone;
+                document.getElementById('endereco').value = usuario.endereco;
+                
+            });
+            alert(response.json());
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    </script>
+    </form>
+</body>
+</html>
