@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 07</title>
+    <link rel="stylesheet" href="semananove.css" />
+    <script src="semananove.js"></script>
+</head>
+
+<body>
+    <div id="main">
+
+        <h1>Lista de exercícios obrigatórios - SEMANA 9
+        </h1>
+        <div id="calc" class="sections">
+            <h3>VALOR PRESENTE E VALOR FUTURO</h3>
+        </div>
+
+        Valor presente (PV): <input type="number" id="pv" value="">
+        <br>
+        Valor futuro (FV): <input type="number" id="fv" value="">
+        <br>
+        Taxa de juros (%): <input type="number" id="jc" value="">
+        <br>
+        Período: <input type="number" id="t" value="">
+        <br>
+        <P></P>
+        <button onclick="valorPresente()" class="button-calc">Calcular valor presente</button>
+        <button onclick="valorFuturo()" class="button-calc">Calcular valor futuro</button>
+        <br><br>
+        <div id="q1"></div>
+
+
+
+        <div id="calc" class="sections">
+            <h3>JUROS SIMPLES</h3>
+        </div>
+
+        Capital (P): <input type="number" id="p" value="">
+        <br>
+        Juros (i% a.a.): <input type="number" id="i" value="">
+        <br>
+        Período (dias): <input type="number" id="d" value="">
+        <br><br>
+        <P></P>
+        <button onclick="juros()" class="button-calc">Calcular o juros</button>
+        <button onclick="montante()" class="button-calc">Calcular o montante</button>
+        <br><br>
+        <div id="q2"></div>
+
+
+        <div id="calc" class="sections">
+            <h3>IMPRESSÃO MALUCA</h3>
+        </div>
+
+        Frase: <input type="text" id="s" value="">
+        <br><br>
+        <button onclick="maluca()" class="button-calc">impressão maluca</button>
+        <br><br>
+        <div id="q3"></div>
+
+
+        <div id="calc" class="sections">
+            <h3>CONVERSÃO DECIMAL-BINÁRIO</h3>
+        </div>
+
+        Número em decimal <input type="number" id="x" value="">
+        <br><br>
+        <P></P>
+        <button onclick="binario()" class="button-calc">binario</button>
+        <br><br>
+        <div id="q4"></div>
+
+
+    </div>
+
+</body>
+
+</html>
