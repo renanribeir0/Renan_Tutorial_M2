@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <title>ETAPA 3</title>
+
+  <link rel="stylesheet" href="semana3.css" />
+  <script src="semana3.js"></script>
+
+
+</head>
+
+<body>
+  <div id="main">
+    <h1>Lançamento Vertical</h1>
+    Escreva a velocidade incial em metros por segundo.
+    <p></p>
+    <br />
+    <input type="number" id="VelocidadeInicial">
+    <br/>
+    <p></p>
+    <button onclick="alturaEtempo()" class="button-calc">Calcular</button>
+    <br>
+    <p></p>
+    <div id="saidaLancamento"></div>
+
+  <div id="main">
+    <h1>PONTO DE MÁXIMO/MÍNIMO</h1>
+    Ponto máximo ou mínimo de uma função do 2º grau
+    <p></p>
+    <br />
+
+    <input type="number" id="a"><br/>
+    <input type="number" id="b"><br/>
+    <input type="number" id="c"><br/>
+    <br/>
+    <p></p>
+    <button onclick="vertice()" class="button-calc">Calcular</button>
+    <br>
+    <p></p>
+    <div id="saidaVertice"></div>
+
+  <div id="main">
+      <h1> TEMPERATURA</h1>
+      Conversão de Celsius para Fahrenheit e vice-versa
+      <br>
+      <p></p>
+    <input type="radio" name="converter" id="CPF"/>Celsius para Fahrenheit <br />
+    <input type="radio" name="converter" id="FPC"/>Fahrenheit para Celsius <br />
+    Converter valor : <input id="num" type="number"> <br />
+    <p>
+     <button onclick="Conversao()" class="button-calc">Calcular</button>
+     <br>
+     <P></P>
+  Resposta: <div id="resposta" style='display:inline'></div><br />
+
+  <div id="main">
+        <h1>Consumo de Energia</h1>
+        Quantidade de Kwh consumidos: <input type="number" id="qt" value="">
+        <br>
+        Valor unitário do Kwh: <input type="number" id="un" value="">
+        <br>
+        <p></p>
+        <button onclick="energia()" class="button-calc">Calcular</button>
+        <br><br>
+        <div id="valor">Cálculo da quantidade x valor unitário</div>
+        <br>
+        <div id="acres">Acréscimo</div>
+
+	</div>
+	
+</body>
+</html>
